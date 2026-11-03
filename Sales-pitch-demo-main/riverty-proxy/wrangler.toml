@@ -1,0 +1,6 @@
+name = "riverty-proxy"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# API keys are secrets, set with: npx wrangler secret put RIVERTY_KEY_NL
+# Never put them in this file.
