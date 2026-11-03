@@ -5575,10 +5575,12 @@ SF.variant('footer', 'bold', { label: 'Bold footer: ink newsletter band, calm co
     return {
       // Riverty sends the shopper back here; the hash only says why the page loaded.
       merchantUrl: location.origin + location.pathname + location.search + '#riverty-return',
-      hostedCheckout: {},
-      payment: { type: (RIVERTY_HOSTED_COPY[m.id] || RIVERTY_HOSTED_COPY.invoice14).type },
-      customer,
-      order: { number: orderNumber, totalNetAmount: sum('netUnitPrice'), totalGrossAmount: sum('grossUnitPrice'), currency: 'EUR', items },
+      // This endpoint wants the order inside authorizeRequest (confirmed against Riverty PT).
+      authorizeRequest: {
+        payment: { type: (RIVERTY_HOSTED_COPY[m.id] || RIVERTY_HOSTED_COPY.invoice14).type },
+        customer,
+        order: { number: orderNumber, totalNetAmount: sum('netUnitPrice'), totalGrossAmount: sum('grossUnitPrice'), currency: 'EUR', items },
+      },
     };
   }
 
