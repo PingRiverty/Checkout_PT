@@ -3644,7 +3644,7 @@ SF.variant('footer', 'bold', { label: 'Bold footer: ink newsletter band, calm co
   // key: it talks to a small proxy (riverty-proxy/worker.js) that adds it.
   // proxyUrl: the deployed Worker, e.g. 'https://riverty-proxy.<you>.workers.dev'.
   // For local testing only, ?proxy=http://localhost:PORT overrides it.
-  const RIVERTY_PROXY_URL = ''; // paste the deployed Worker URL here, no trailing slash
+  const RIVERTY_PROXY_URL = 'https://riverty-proxy.ping-huang.workers.dev'; // paste the deployed Worker URL here, no trailing slash
   const RIVERTY_LIVE = (() => {
     const fromParam = new URLSearchParams(location.search).get('proxy') || '';
     const localOnly = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(fromParam);
